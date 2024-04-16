@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Define CSS variables for a more professional color scheme */
+        :root {
+            --primary-color: #106BA0; /* Blue */
+            --hover-color: #0E4D92; /* Darker Blue */
+            --background-color: #f4f4f4; /* Light grey */
+            --text-color: #ffffff;
+            --secondary-text-color: #333333;
+        }
+
+        /* Reset default margin and padding */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--secondary-text-color);
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        /* Container styles - using grid for layout */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* Button styles */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            padding: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Hospital Management System
+    </header>
+    <div class="container">
+        <a href="{% url 'patient_registration' %}" class="btn"><i class="fas fa-user-plus"></i> Patient Registration</a>
+        <a href="{% url 'doctor_registration' %}" class="btn"><i class="fas fa-user-md"></i> Doctor Registration</a>
+        <a href="{% url 'doctor_list' %}" class="btn"><i class="fas fa-users"></i> Doctor List</a>
+        <a href="{% url 'patient_list' %}" class="btn"><i class="fas fa-procedures"></i> Patient List</a>
+        <a href="{% url 'room_list' %}" class="btn"><i class="fas fa-bed"></i> Room List</a>
+        <a href="{% url 'appointment_list' %}" class="btn"><i class="fas fa-calendar-alt"></i> Appointment List</a>
+        <a href="{% url 'admission_list' %}" class="btn"><i class="fas fa-hospital-user"></i> Admission List</a>
+    </div>
+</body>
+</html>
